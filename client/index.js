@@ -1,10 +1,18 @@
 
+
+//Loading initial data
+//#######################################################
 document.addEventListener('DOMContentLoaded', function () {
     fetch('http://localhost:5000/getAll')
         .then(response => response.json())
         .then(data => loadHTMLTable(data['data']));
 });
+//#######################################################
 
+
+
+//passing id to delete and edit function
+//#######################################################
 document.querySelector('table tbody').addEventListener
 ('click', function(event) {
    if(event.target.className === "delete-row-btn"){
@@ -14,18 +22,10 @@ document.querySelector('table tbody').addEventListener
        handleEditRow(event.target.id);
    }
 });
+//#######################################################
 
-const updateBtn = document.querySelector('#update-row-btn');
-const searchBtn = document.querySelector('#search-btn');
-
-searchBtn.onclick = function() {
-    const searchValue = document.querySelector('#search-input').value;
-
-    fetch('http://localhost:5000/search/' + searchValue)
-    .then(response => response.json())
-    .then(data => loadHTMLTable(data['data']));
-}
-
+//Delete data
+//#######################################################
 function deleteRowById(Id){
     fetch('http://localhost:5000/delete/' + Id, {
         method: 'DELETE'
@@ -38,6 +38,12 @@ function deleteRowById(Id){
         }
     });
 }
+//#######################################################
+
+
+//Updating data
+//#######################################################
+const updateBtn = document.querySelector('#update-row-btn');
 
 function handleEditRow(Id){
     const updateSection = document.querySelector('#update-row');
@@ -64,9 +70,27 @@ updateBtn.onclick = function(){
         }
     });
 }
+//#######################################################
+
+
+
+//Data search
+//#######################################################
+const searchBtn = document.querySelector('#search-btn');
+searchBtn.onclick = function() {
+    const searchValue = document.querySelector('#search-input').value;
+
+    fetch('http://localhost:5000/search/' + searchValue)
+    .then(response => response.json())
+    .then(data => loadHTMLTable(data['data']));
+}
+//#######################################################
+
+
+//Adding data
+//#######################################################
 
 const addBtn = document.querySelector('#add-name-btn');
-
 
 addBtn.onclick = function () {
     const nameInput = document.querySelector('#name-input');
@@ -144,3 +168,5 @@ function loadHTMLTable(data) {
 
     table.innerHTML = tableHTML;
 }
+
+//#######################################################
