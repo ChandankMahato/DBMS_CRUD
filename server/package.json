@@ -1,0 +1,30 @@
+{
+  "name": "hotel_management_system",
+  "version": "1.0.0",
+  "description": "mini project data base management system",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "keywords": [
+    "dbsm",
+    "mysql",
+    "mini",
+    "project",
+    "curd",
+    "record_system",
+    "management_systemejs",
+    "javascript"
+  ],
+  "author": "Chandan Kumar Mahato",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
