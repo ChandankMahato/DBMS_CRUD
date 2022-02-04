@@ -27,7 +27,7 @@ class DbService {
     //get data function
     async getAllData() {
         try{
-            const res = await new Promise((resolve, reject) => {
+            const response = await new Promise((resolve, reject) => {
                 const query = "SELECT * FROM tableone;";
 
                 connection.query(query, (err, results) => {
@@ -35,8 +35,7 @@ class DbService {
                     resolve(results);
                 })
             });
-            // console.log(res);
-            return res;
+            return response;
         }catch(error){
             console.log(error);
         }
@@ -54,8 +53,69 @@ class DbService {
                     resolve(result.insertId);
                 })
             });
-            console.log(insertId);
-            return insertId;
+            return {
+                Id: insertId,
+                name: name,
+                dateAdded: dateAdded,
+            };
+        }catch(error){
+            console.log(error);
+        }
+    }
+
+    //delete function
+    async deleteRowById(id) {
+        
+        try{
+            id = parseInt(id, 10);//here 10 is base 10
+            const response = await new Promise((resolve, reject) => {
+                const query = "DELETE FROM tableone WHERE Id = ?";
+
+                connection.query(query, [id], (err, result) => {
+                    if(err) reject(new Error(err.message));
+                    resolve(result.affectedRows);
+                })
+            });
+            return response === 1 ? true : false;
+        }catch(error){
+            console.log(error);
+            return false;
+        }
+    }
+
+
+    //update function
+    async updateNameById(id, name) {
+        try{
+            id = parseInt(id, 10);
+            const response = await new Promise((resolve, reject) => {
+                const query = "UPDATE tableone SET name = ? WHERE Id = ?";
+
+                connection.query(query, [name, id], (err, result) => {
+                    if(err) reject(new Error(err.message));
+                    resolve(result.affectedRows);
+                })
+            });
+            return response === 1 ? true : false;
+        }catch(error){
+            console.log(error);
+            return false;
+        }
+    }
+
+
+    //search
+    async searchByName(name) {
+        try{
+            const response = await new Promise((resolve, reject) => {
+                const query = "SELECT * FROM tableone WHERE name = ? ;";
+
+                connection.query(query, [name], (err, result) => {
+                    if(err) reject(new Error(err.message));
+                    resolve(result);
+                })
+            });
+            return response;
         }catch(error){
             console.log(error);
         }
