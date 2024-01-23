@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="customerDetails.css">
+    <title>Hotem Management System</title>
+</head>
+
+<body>
+    <main>
+        <div class="customerDetailsContainer">
+            <form action="" id="registrationFrom">
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Cname">Name</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Cname" placeholder="Customer name...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Cnumber">Number</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" id="Cnumber" placeholder="Customer Number...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Caddress">Address</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Caddress" placeholder="Customer Address...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Cfavorite">Favorite</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="text" id="Cfavorite" placeholder="Favourite Item...">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-25">
+                        <label for="Cdues">Dues:</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="number" id="Cdues" placeholder="Due Amount...">
+                    </div>
+                </div>
+                <div class="row">
+                    <input type="submit" id="add-customer-details-btn" value="Add Customer Details">
+                </div>
+            </form>
+        </div>
+
+        <br><br><br>
+
+        <div>
+            <input placeholder="search by name" id="search-input">
+            <button id="search-btn">Search</button>
+        </div>
+
+        <table id="table">
+            <thead>
+                <th>Name</th>
+                <th>Number</th>
+                <th>Address</th>
+                <th>Favorite</th>
+                <th>Date Added</th>
+                <th>Amount</th>
+                <th>Dues</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </thead>
+
+            <tbody></tbody>
+        </table>
+
+        <section hidden id="update-Customer-Details">
+            <div class="updateCustomerDetailsContainer">
+                <form action="" id="updateForm">
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Cname">Name</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="Cname" value="Chandan" placeholder="Customer name...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Cnumber">Number</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" id="Cnumber" value="" placeholder="Customer Number...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Caddress">Address</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="Caddress" value="" placeholder="Customer Address...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Cfavorite">Favorite</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="text" id="Cfavorite" value="" placeholder="Favourite Item...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-25">
+                            <label for="Cdues">Dues:</label>
+                        </div>
+                        <div class="col-75">
+                            <input type="number" id="Cdues" value="" placeholder="Due Amount...">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input type="submit" id="update-customer-details-btn" value="Update Customer Details">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main>
+    <script src="customerDetails.js"></script>
+</body>
+
+</html>
